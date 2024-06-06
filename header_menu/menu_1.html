@@ -8,8 +8,8 @@
 </head>
 <body>
     <main>
-        <button class="buttonMenu">Меню</button>
-        <div class="headerMenu">
+        <button onclick="clickMenuButton()" class="buttonMenu">Меню</button>
+        <div id="headerMenu" class="headerMenu close">
             <div class="headerMenuContent">
                 <button>О нас</button>
                 <button>Контакты</button>
@@ -17,14 +17,15 @@
             <div class="headerMenuButton">
                 <div class="headerMenuButtonLanguage">
                     <button>English</button>
-                    <button>Русский</button>
+                    <button class="headerActiveButton">Русский</button>
                 </div>
                 <div class="headerMenuButtonTheme">
-                    <button>Dark</button>
+                    <button class="headerActiveButton">Dark</button>
                     <button>Light</button>
                 </div>
             </div>
         </div>
     </main>
+    <script src="../assets/js/header_menu/menu_1.js"></script>
 </body>
 </html>
