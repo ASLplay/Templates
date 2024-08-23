@@ -1,0 +1,33 @@
+body{
+    margin: 0%;
+    background: #0f0f11;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.logo{
+    margin: 2px;
+    border-radius: 30px;
+}
+h1{
+    color: whitesmoke;
+    cursor: pointer;
+    font-style: italic;
+}
+
+img {
+    position: fixed;
+    z-index: -20;
+    width: 100%;
+    height: 100vh;
+}
+
+#background {
+    z-index: -19;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#ffffff00, #000000 80%);
+}

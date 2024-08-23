@@ -1,0 +1,75 @@
+:root {
+    --min-width: 300px !important;
+    --min-height: 300px !important;
+}
+
+#logo{
+    min-width: var(--min-width);
+    min-height: var(--min-height);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: animateColor 10s infinite;
+    background-color: red;
+}
+
+#logo #minHeightWidth {
+    height: var(--min-height);
+    width: var(--min-width);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: black;
+    /* animation: animateTransform 2s infinite; */
+}
+
+#logo #minHeightWidth img {
+    object-fit: cover;
+    object-position: center;
+    width: 50%;
+    padding: 10%;
+    
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0%;
+    width: 100vw;
+    min-height: 100vh;
+    background: #1e1e1e;
+}
+
+/* @keyframes animateColor {
+    0% {
+        background: red;
+    }
+
+    50% {
+        background: blue;
+    }
+
+    100% {
+        background: red;
+
+    }
+} */
+
+/* @keyframes animateTransform {
+    0% {
+        transform: scale(100%);
+    }
+
+    50% {
+        transform: scale(100%);
+    }
+
+    100% {
+        transform: scale(100%);
+
+    }
+} */
