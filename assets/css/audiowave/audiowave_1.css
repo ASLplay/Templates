@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(50deg, #130C52, #FF00A1);
     animation: animateColor 10s infinite;
     background-color: red;
 }

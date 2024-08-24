@@ -10,35 +10,32 @@ width = 10;
 
 window.onclick = function () {
 
-
-
     if (!context) {
-            body.querySelector('h1').remove();
+        body.querySelector('h1').remove();
 
-    for (var i = 0; i < num; i++) {
-        logo = document.createElement('div');
-        logo.className = 'logo';
-        logo.style.background = 'white';
-        logo.style.minWidth = width + 'px';
-        body.appendChild(logo);
-    }    
+        for (var i = 0; i < num; i++) {
+            logo = document.createElement('div');
+            logo.className = 'logo';
+            logo.style.background = 'white';
+            logo.style.minWidth = width + 'px';
+            body.appendChild(logo);
+        }
 
-    myElements = document.getElementsByClassName('logo');
+        myElements = document.getElementsByClassName('logo');
+
         preparation();
     }
-    
+
     if (audio.paused) {
         audio.play();
         loop();
     } else {
         audio.pause();
     }
-
-
-
 }
 
 function preparation() {
+
     context = new AudioContext();
     analyser = context.createAnalyser();
     src = context.createMediaElementSource(audio);
@@ -48,7 +45,8 @@ function preparation() {
 }
 
 function loop() {
-    if(!audio.paused){
+
+    if (!audio.paused) {
         window.requestAnimationFrame(loop);
     }
 
