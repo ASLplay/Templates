@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .editor {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--border-radius-block);
+            background-color: var(--whiteGrey);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .editor .toolbar {
+            display: flex;
+            gap: 10px;
+        }
+
+        .editor .toolbar button {
+            border-radius: 5px;
+            background-color: var(--orange);
+            color: var(--totalWhite);
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .editor #content {
+            height: 100%;
+            padding: 20px;
+            border-radius: var(--border-radius-element);
+            border: 1px solid var(--black);
+            outline: none;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            user-select: text;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="editor">
+        <div class="toolbar">
+            <button type="button" onclick="format('bold')"><strong>B</strong></button>
+            <button type="button" onclick="format('italic')"><em>I</em></button>
+            <button type="button" onclick="format('formatBlock', '<h3>')">Заголовок</button>
+            <button type="button" onclick="format('insertUnorderedList')">- List</button>
+            <!-- <button type="button" onclick="insertImage()">🖼️ Фото</button> -->
+        </div>
+        <div id="content" contenteditable="true" ondrop="return false" ondragover="return false"
+            ondragstart="return false"></div>
+        <input type="hidden" name="note" id="hiddenNote">
+    </div>
+
+    <script>
+        // Добавляем обработчик для подготовки формы
+        function prepareForm() {
+            document.getElementById('hiddenNote').value =
+                document.getElementById('content').innerHTML;
+        }
+
+        // Остальные функции остаются без изменений
+        document.addEventListener('dragstart', function (e) {
+            e.preventDefault();
+        });
+
+        function format(command, value = null) {
+            document.execCommand(command, false, value);
+            document.getElementById('content').focus();
+        }
+
+        // Функция для вставки изображения
+        function insertImage() {
+            const url = prompt('Введите URL изображения:');
+            if (url) {
+                // Проверка на валидный URL изображения
+                if (/\.(jpeg|jpg|gif|png|webp)$/i.test(url)) {
+                    format('insertImage', url);
+                } else {
+                    alert('Пожалуйста, введите ссылку на изображение (JPEG, JPG, PNG, GIF, WEBP)');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
